@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Découvrez VÉRANKA, une langue nouvelle à apprendre, parler et écrire.">
+  <title>VÉRANKA — École de langue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#accueil">VÉRANKA<span>®</span></a>
+    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">☰</button>
+    <nav id="navigation">
+      <a href="#accueil">Accueil</a>
+      <a href="#apprendre">Apprendre</a>
+      <a href="#alphabet">Alphabet</a>
+      <a href="#quiz">Quiz</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <p class="eyebrow">UNE LANGUE. UN UNIVERS. UN MYSTÈRE.</p>
+      <h1>Entrez dans le monde de <span>VÉRANKA</span></h1>
+      <p class="intro">
+        Découvrez une langue originale, apprenez ses mots,
+        explorez ses règles et commencez à créer vos propres phrases.
+      </p>
+      <a class="primary-button" href="#apprendre">Commencer à apprendre ↗</a>
+      <p class="small-note">Votre voyage linguistique commence ici.</p>
+    </section>
+
+    <section class="section" id="apprendre">
+      <p class="eyebrow">VOTRE PARCOURS</p>
+      <h2>Apprenez à votre rythme</h2>
+      <div class="cards">
+        <article class="lesson-card">
+          <div class="card-icon">⌘</div>
+          <h3>L'alphabet</h3>
+          <p>Découvrez les lettres et les sons de VÉRANKA.</p>
+          <a href="#alphabet">Découvrir →</a>
+        </article>
+        <article class="lesson-card">
+          <div class="card-icon">◇</div>
+          <h3>Le vocabulaire</h3>
+          <p>Apprenez vos premiers mots et leurs traductions.</p>
+          <a href="#vocabulaire">Découvrir →</a>
+        </article>
+        <article class="lesson-card">
+          <div class="card-icon">✧</div>
+          <h3>Les exercices</h3>
+          <p>Testez vos connaissances avec un petit quiz.</p>
+          <a href="#quiz">S'entraîner →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alphabet-section" id="alphabet">
+      <p class="eyebrow">LEÇON 01</p>
+      <h2>Les voyelles</h2>
+      <p>Voici les cinq voyelles de base utilisées dans notre transcription actuelle.</p>
+      <div class="letters">
+        <span>A</span><span>E</span><span>I</span><span>O</span><span>U</span>
+      </div>
+      <p class="note">
+        Cette transcription est notre base de travail. Nous pourrons ensuite
+        définir officiellement l'alphabet et les règles de prononciation.
+      </p>
+    </section>
+
+    <section class="section" id="vocabulaire">
+      <p class="eyebrow">PREMIERS MOTS</p>
+      <h2>Votre premier vocabulaire</h2>
+      <div class="word-list">
+        <div><strong>Avel</strong><span>Bonjour</span></div>
+        <div><strong>Kalen</strong><span>Paix</span></div>
+        <div><strong>Sor</strong><span>Lumière</span></div>
+        <div><strong>Dara</strong><span>Vérité</span></div>
+        <div><strong>Naven</strong><span>Merci</span></div>
+      </div>
+      <p class="note">Ces mots sont provisoires : nous les confirmerons dans le dictionnaire officiel de VÉRANKA.</p>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <p class="eyebrow">À VOUS DE JOUER</p>
+      <h2>Premier mini-quiz</h2>
+      <p>Que signifie le mot « Sor » dans notre vocabulaire provisoire ?</p>
+      <div class="quiz-options">
+        <button class="quiz-option" data-answer="false">La terre</button>
+        <button class="quiz-option" data-answer="true">La lumière</button>
+        <button class="quiz-option" data-answer="false">La paix</button>
+      </div>
+      <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+      <p id="quizScore" class="score">Score : 0 / 1</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#accueil">VÉRANKA</a>
+    <p>Une langue en construction. Un univers à découvrir.</p>
+    <p class="copyright">© 2026 VÉRANKA — Projet éducatif indépendant</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+            </html>
+            
