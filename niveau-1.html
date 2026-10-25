@@ -1,57 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080f20">
-<meta name="description" content="Apprends la langue VÉRANKA étape par étape.">
-<title>Niveau 1 — Découverte — VÉRANKA</title>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080f20"><title>Niveau 1 — VÉRANKA</title>
 <style>
-:root{--night:#080f20;--panel:#101a30;--gold:#d8b56a;--gold-light:#f0d99c;--text:#f7f4ec;--muted:#c1c7d4}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-a{color:inherit}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,4vw,40px);background:#080f20;border-bottom:1px solid #d8b56a55;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.25rem;font-weight:800;letter-spacing:.06em}
-.brand-emblem{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold-light);font-family:Georgia,serif;font-size:25px;background:radial-gradient(circle at 50% 40%,#27304a,#080f20 72%)}
-nav{display:flex;flex-wrap:wrap;gap:16px}nav a{text-decoration:none;color:var(--muted);font-size:.92rem}nav a:hover{color:var(--gold-light)}
-main{width:min(100% - 32px,1000px);margin:0 auto}.hero{padding:clamp(50px,10vw,100px) 0 50px;text-align:center;background:radial-gradient(ellipse at 50% 30%,#1e345955,transparent 60%)}
-.eyebrow{color:var(--gold-light);font-size:.8rem;letter-spacing:.18em;font-weight:700}.hero h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:1.12;margin:16px auto;max-width:850px}.gold{color:var(--gold-light)}.intro,.muted{color:var(--muted)}.intro{font-size:1.1rem;max-width:680px;margin:0 auto 24px}
-.primary-button,.action{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0d99c,#d1a84e);color:#151525;text-decoration:none;border:0;border-radius:12px;padding:13px 20px;font-weight:800;cursor:pointer}
-.section{padding:32px 0;scroll-margin-top:85px}.section h2{font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.2}.level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
-.level-card{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid #d8b56a55;border-radius:18px;background:linear-gradient(145deg,#141f37,#0e1325);text-decoration:none;min-height:180px}
-.level-card:hover{border-color:var(--gold);transform:translateY(-2px)}.level-symbol{color:var(--gold-light);font-size:1.5rem}.level-card strong{font-size:1.08rem}.level-card small{color:var(--muted)}.level-action{margin-top:auto;color:var(--gold-light);font-weight:700}
-.panel{margin:22px 0;padding:clamp(18px,4vw,30px);border:1px solid #d8b56a55;border-radius:20px;background:linear-gradient(145deg,#11182a,#171526)}
-.number-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(95px,1fr));gap:10px;margin:18px 0}.number-tile,.word-tile{padding:13px;border:1px solid #ffffff1c;border-radius:12px;background:#ffffff08}.number-tile strong{display:block;color:var(--gold-light);font:700 22px Georgia,serif}.number-tile span{color:#d1ccbf}
-.rule{padding:12px 14px;margin:10px 0;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;background:#ffffff08}.veranka-word{color:var(--gold-light);font-family:Georgia,serif;overflow-wrap:anywhere}
-.converter-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.converter-row input{flex:1;min-width:130px;padding:12px;border:1px solid #625b50;border-radius:10px;background:#0c1020;color:white;font:inherit}.result{padding:14px;margin-top:12px;border:1px solid #ffffff20;border-radius:10px;background:#090d18;overflow-wrap:anywhere}.result strong{color:var(--gold-light);font-size:20px}
-.quiz-item{padding:15px 0;border-bottom:1px solid #ffffff20}.choices{display:flex;flex-wrap:wrap;gap:8px}.choice,.quiz-option{padding:10px 13px;border:1px solid #ffffff30;border-radius:9px;background:#ffffff0b;color:var(--text);cursor:pointer}.choice.selected{border-color:var(--gold);background:#51442b}.good{color:#8fd5a5}.bad{color:#ff9c91}
-.letters{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}.letters span{display:grid;place-items:center;min-width:56px;height:64px;border:1px solid #d8b56a66;border-radius:12px;background:#ffffff08;color:var(--gold-light);font-size:1.5rem;font-weight:800}
-.word-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.word-tile strong{display:block;color:var(--gold-light)}.note{font-size:.9rem;color:var(--muted)}
-footer{text-align:center;padding:32px 16px;margin-top:40px;border-top:1px solid #d8b56a33;color:var(--muted)}footer .logo{justify-content:center;color:var(--text)}
-.back-link{display:inline-block;margin:22px 0;color:var(--gold-light);text-decoration:none}
-@media(max-width:600px){.topbar{align-items:flex-start;flex-direction:column}.level-grid{grid-template-columns:1fr}.level-card{min-height:0}.converter-row{flex-direction:column}.action{width:100%}nav{gap:12px}}
-</style>
-</head>
-<body>
-<header class="topbar">
-<a class="logo" href="index.html"><span class="brand-emblem" aria-hidden="true">V</span><span>VÉRANKA</span></a>
-<nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="niveau-1.html">Niveau 1</a><a href="niveau-2.html">Niveau 2</a><a href="niveau-3.html">Niveau 3</a><a href="niveau-4.html">Niveau 4</a></nav>
-</header>
-<main>
-
-<a class="back-link" href="index.html">← Retour à l'accueil</a>
-<section class="hero" style="padding-top:30px">
-<p class="eyebrow">NIVEAU 1 · DÉCOUVERTE</p><h1>Les premiers pas en <span class="gold">VÉRANKA</span></h1>
-<p class="intro">Découvre les voyelles et mémorise quelques mots de départ.</p>
-</section>
-<section class="panel" id="alphabet"><p class="eyebrow">LEÇON 1</p><h2>Les voyelles</h2><p>Voici les cinq voyelles de base utilisées dans notre transcription actuelle.</p><div class="letters"><span>A</span><span>E</span><span>I</span><span>O</span><span>U</span></div><p class="note">La transcription et les règles de prononciation pourront être précisées dans les prochaines étapes.</p></section>
-<section class="panel" id="mots"><p class="eyebrow">LEÇON 2</p><h2>Premiers mots</h2><div class="word-list"><div class="word-tile"><strong>Avel</strong><span>Bonjour</span></div><div class="word-tile"><strong>Naven</strong><span>Merci</span></div><div class="word-tile"><strong>Malen</strong><span>Ami / amie</span></div><div class="word-tile"><strong>Dalen</strong><span>Maison</span></div><div class="word-tile"><strong>Eran</strong><span>Oui</span></div><div class="word-tile"><strong>Vok</strong><span>Non</span></div></div><p class="note">Ces mots ont été retenus dans le vocabulaire de travail de VÉRANKA.</p></section>
-<section class="panel"><h2>Petit entraînement</h2><p>Comment dit-on « Merci » en VÉRANKA ?</p><div class="choices" id="q1"><button class="quiz-option" data-correct="false">Avel</button><button class="quiz-option" data-correct="true">Naven</button><button class="quiz-option" data-correct="false">Malen</button></div><p id="feedback" aria-live="polite" class="muted"></p></section>
+:root{--n:#080f20;--p:#111a30;--g:#d8b56a;--gl:#f0d99c;--t:#f7f4ec;--m:#c1c7d4}
+*{box-sizing:border-box}body{margin:0;background:var(--n);color:var(--t);font:16px/1.6 Arial,sans-serif}a{color:var(--gl)}
+header{padding:15px 20px;border-bottom:1px solid #d8b56a55;display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap;position:sticky;top:0;background:var(--n)}
+.logo{font-weight:bold;text-decoration:none;letter-spacing:.08em}.emblem{display:inline-grid;place-items:center;border:1px solid var(--g);border-radius:50%;width:34px;height:34px;color:var(--gl);font:24px Georgia;margin-right:8px}
+nav{display:flex;gap:12px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--m);font-size:.9rem}
+main{max-width:850px;width:calc(100% - 30px);margin:auto}.hero{text-align:center;padding:36px 0;background:radial-gradient(ellipse at top,#1e345955,transparent 65%)}
+.eyebrow{color:var(--gl);font-size:.78rem;font-weight:bold;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.15}.gold,.tile strong{color:var(--gl)}.muted,.intro,.tile span,.note{color:var(--m)}
+.intro{max-width:620px;margin:auto}.progress,.lesson{padding:20px;margin:20px 0;border:1px solid #d8b56a55;border-radius:16px;background:linear-gradient(145deg,#11182a,#171526)}
+.track{height:8px;background:#ffffff1c;border-radius:9px;margin-top:8px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#c79b43,#f0d99c)}
+.lessonlinks,.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lessonlinks a,.tile{padding:14px;border:1px solid #ffffff24;border-radius:12px;background:#ffffff08;text-decoration:none}.lessonlinks strong{display:block;color:var(--gl)}.lessonlinks small{color:var(--m)}
+.letters{display:flex;gap:10px;flex-wrap:wrap}.letters span{width:52px;height:56px;display:grid;place-items:center;border:1px solid #d8b56a66;border-radius:10px;color:var(--gl);font-size:1.4rem}
+.tile strong{display:block}.choice{padding:10px 13px;border:1px solid #ffffff35;border-radius:9px;background:#ffffff09;color:var(--t);margin:3px;cursor:pointer}.choice.selected{border-color:var(--g);background:#51442b}
+button.action{padding:11px 15px;border:0;border-radius:9px;background:linear-gradient(135deg,#f0d99c,#d1a84e);color:#151525;font-weight:bold;cursor:pointer;margin-top:10px}
+.feedback{min-height:24px;font-weight:bold}.good{color:#8fd5a5}.bad{color:#ff9c91}.rule{border-left:3px solid var(--g);background:#ffffff08;padding:12px;margin:12px 0}.example{font:1.15rem Georgia;color:var(--gl)}
+footer{text-align:center;padding:25px;color:var(--m);border-top:1px solid #d8b56a33;margin-top:35px}
+@media(max-width:550px){.lessonlinks,.grid{grid-template-columns:1fr}header{align-items:flex-start;flex-direction:column}}
+</style></head><body>
+<header><a class="logo" href="index.html"><span class="emblem">V</span>VÉRANKA</a><nav><a href="index.html">Accueil</a><a href="niveau-1.html">Niveau 1</a><a href="niveau-2.html">Niveau 2</a><a href="niveau-3.html">Niveau 3</a><a href="niveau-4.html">Niveau 4</a></nav></header>
+<main><a href="index.html">← Retour à l'accueil</a>
+<section class="hero"><p class="eyebrow">VÉRANKA · NIVEAU 1</p><h1>Les premiers pas en <span class="gold">VÉRANKA</span></h1><p class="intro">Quatre leçons courtes pour découvrir les voyelles, les premiers mots, les pronoms et la structure des phrases.</p></section>
+<div class="progress"><strong>Ta progression</strong> <span id="progressText">0 sur 4 leçons terminées</span><div class="track"><div class="bar" id="bar"></div></div></div>
+<h2>Le parcours du Niveau 1</h2><div class="lessonlinks">
+<a href="#l1"><strong>Leçon 1 · Les voyelles</strong><small>Découvrir A, E, I, O, U</small></a>
+<a href="#l2"><strong>Leçon 2 · Premiers mots</strong><small>Saluer et remercier</small></a>
+<a href="#l3"><strong>Leçon 3 · Les pronoms</strong><small>Parler de soi et des autres</small></a>
+<a href="#l4"><strong>Leçon 4 · La phrase</strong><small>L'ordre des mots</small></a></div>
+<section class="lesson" id="l1"><p class="eyebrow">LEÇON 1</p><h2>Les voyelles</h2><p>Voici les cinq voyelles de base utilisées dans la transcription actuelle de VÉRANKA.</p><div class="letters"><span>A</span><span>E</span><span>I</span><span>O</span><span>U</span></div><div class="rule"><b>À retenir :</b> les cinq voyelles sont A, E, I, O et U. Les règles détaillées de prononciation seront définies dans une prochaine étape.</div><p>Combien de voyelles de base avons-nous présentées ?</p><div id="q1"><button class="choice" data-ok="false">3</button><button class="choice" data-ok="true">5</button><button class="choice" data-ok="false">7</button></div><p class="feedback" id="f1"></p><button class="action done" data-n="1">Marquer la leçon comme terminée</button></section>
+<section class="lesson" id="l2"><p class="eyebrow">LEÇON 2</p><h2>Les premiers mots</h2><p>Voici quelques mots de base validés.</p><div class="grid"><div class="tile"><strong>Avel</strong><span>Bonjour</span></div><div class="tile"><strong>Naven</strong><span>Merci</span></div><div class="tile"><strong>Malen</strong><span>Ami / amie</span></div><div class="tile"><strong>Dalen</strong><span>Maison</span></div><div class="tile"><strong>Eran</strong><span>Oui</span></div><div class="tile"><strong>Vok</strong><span>Non</span></div></div><p>Quel mot signifie « Merci » ?</p><div id="q2"><button class="choice" data-ok="false">Avel</button><button class="choice" data-ok="true">Naven</button><button class="choice" data-ok="false">Dalen</button></div><p class="feedback" id="f2"></p><button class="action done" data-n="2">Marquer la leçon comme terminée</button></section>
+<section class="lesson" id="l3"><p class="eyebrow">LEÇON 3</p><h2>Les pronoms personnels</h2><p>Les pronoms indiquent qui parle ou de qui l'on parle.</p><div class="grid"><div class="tile"><strong>Na</strong><span>Je</span></div><div class="tile"><strong>Ta</strong><span>Tu</span></div><div class="tile"><strong>Ba</strong><span>Il / elle</span></div><div class="tile"><strong>Ma</strong><span>Nous</span></div><div class="tile"><strong>Sa</strong><span>Vous</span></div><div class="tile"><strong>Ra</strong><span>Ils / elles</span></div></div><div class="rule">En VÉRANKA, les verbes ne changent pas selon la personne.</div><p>Quel pronom signifie « nous » ?</p><div id="q3"><button class="choice" data-ok="false">Ra</button><button class="choice" data-ok="true">Ma</button><button class="choice" data-ok="false">Ta</button></div><p class="feedback" id="f3"></p><button class="action done" data-n="3">Marquer la leçon comme terminée</button></section>
+<section class="lesson" id="l4"><p class="eyebrow">LEÇON 4</p><h2>La structure d'une phrase</h2><p>La structure de base de VÉRANKA suit l'ordre :</p><div class="rule"><p class="example">Sujet + Verbe + Objet</p><p class="note">En français : « Je vois la lumière » suit aussi cet ordre. Les mots équivalents en VÉRANKA dans cet exemple restent provisoires.</p></div><p>Quel est l'ordre de base des mots ?</p><div id="q4"><button class="choice" data-ok="false">Objet + Sujet + Verbe</button><button class="choice" data-ok="true">Sujet + Verbe + Objet</button><button class="choice" data-ok="false">Verbe + Objet + Sujet</button></div><p class="feedback" id="f4"></p><button class="action done" data-n="4">Marquer la leçon comme terminée</button></section>
+<section class="lesson"><p class="eyebrow">RÉVISION FINALE</p><h2>Quiz du Niveau 1</h2><p>1. « Bonjour » en VÉRANKA ?</p><div class="final" data-answer="Avel"><button class="choice" data-value="Avel">Avel</button><button class="choice" data-value="Naven">Naven</button></div><p>2. « Vok » signifie ?</p><div class="final" data-answer="Non"><button class="choice" data-value="Oui">Oui</button><button class="choice" data-value="Non">Non</button></div><p>3. Le pronom « je » ?</p><div class="final" data-answer="Na"><button class="choice" data-value="Na">Na</button><button class="choice" data-value="Ma">Ma</button></div><p>4. Quel est l'ordre de base ?</p><div class="final" data-answer="SVO"><button class="choice" data-value="SVO">Sujet + Verbe + Objet</button><button class="choice" data-value="OVS">Objet + Verbe + Sujet</button></div><button class="action" id="check">Vérifier mon score</button><p class="feedback" id="finalFeedback"></p></section>
+</main><footer>VÉRANKA · Une langue en construction. Un univers à découvrir.</footer>
 <script>
-document.querySelectorAll('#q1 button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#q1 button').forEach(x=>x.style.borderColor='');b.style.borderColor=b.dataset.correct==='true'?'#8fd5a5':'#ff9c91';document.getElementById('feedback').textContent=b.dataset.correct==='true'?'Correct ! Naven signifie « Merci ».':'Pas tout à fait. Réessaie !';}));
-</script>
-
-</main>
-<footer><a class="logo" href="index.html"><span class="brand-emblem" aria-hidden="true">V</span><span>VÉRANKA</span></a><p>Une langue en construction. Un univers à découvrir.</p><p>© 2026 VÉRANKA — Projet éducatif indépendant</p></footer>
-
-</body>
-</html>
+const done=new Set();function progress(){document.getElementById('progressText').textContent=done.size+' sur 4 leçons terminées';document.getElementById('bar').style.width=(done.size/4*100)+'%'}
+for(let n=1;n<=4;n++){const row=document.getElementById('q'+n);row.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{row.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const f=document.getElementById('f'+n);let ok=b.dataset.ok==='true';f.textContent=ok?'Correct !':'Pas tout à fait. Essaie encore.';f.className='feedback '+(ok?'good':'bad')}))}
+document.querySelectorAll('.done').forEach(b=>b.addEventListener('click',()=>{done.add(b.dataset.n);b.textContent='Leçon terminée ✓';b.disabled=true;progress()}));
+document.querySelectorAll('.final').forEach(row=>row.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{row.querySelectorAll('button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');row.dataset.value=b.dataset.value})));
+document.getElementById('check').addEventListener('click',()=>{let score=0;document.querySelectorAll('.final').forEach(row=>{if(row.dataset.value===row.dataset.answer)score++});let f=document.getElementById('finalFeedback');f.textContent='Ton score : '+score+' / 4. '+(score===4?'Excellent !':'Relis les leçons puis réessaie.');f.className='feedback '+(score===4?'good':'')});
+progress();
+</script></body></html>
