@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071326">
+<title>VÉRANKA — Les Dix Spectres</title>
+<style>
+:root{--bg:#061020;--panel:#0c1b30;--panel2:#10223a;--gold:#e2b85b;--gold2:#f6d98d;--text:#f4f0e5;--muted:#b7c1d0;--line:#34445a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#142b49 0,#061020 54%,#030812 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}
+a{color:var(--gold2)}button,input,select{font:inherit}.wrap{width:min(1120px,100% - 28px);margin:auto}
+header{padding:28px 0 20px;text-align:center;border-bottom:1px solid #b88e3e55;background:linear-gradient(180deg,#071326ee,#07132677)}
+.brandmark{font-size:2.7rem;color:var(--gold);line-height:1;text-shadow:0 0 25px #e2b85b55}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.75rem;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,serif;letter-spacing:.13em;font-size:clamp(2rem,7vw,3.6rem);margin:10px 0 0;color:var(--gold2)}
+.subtitle{color:var(--muted);margin:5px 0 18px}.motto{font-family:Georgia,serif;font-style:italic;color:#e8d8b0}
+nav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+nav a,.pill{border:1px solid #c39c4e77;border-radius:999px;padding:8px 13px;text-decoration:none;font-size:.88rem;background:#0b1b2d}
+nav a:hover,nav a:focus{background:#26334a;border-color:var(--gold)}
+main{padding:26px 0 40px}.intro{max-width:780px;margin:0 auto 24px;text-align:center;color:var(--muted)}
+.section-title{font-family:Georgia,serif;color:var(--gold2);font-size:1.55rem;margin:28px 0 12px}
+.tools{display:grid;grid-template-columns:1fr 180px;gap:10px;margin:18px 0 20px}
+input,select{width:100%;padding:12px 13px;border-radius:12px;border:1px solid var(--line);background:#09172a;color:var(--text);outline:none}
+input:focus,select:focus{border-color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:linear-gradient(145deg,#11233b,#091629);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px #0003}
+.cardtop{display:flex;gap:13px;align-items:center;padding:16px 16px 10px}
+.sig{width:54px;height:54px;flex:0 0 54px;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;background:#101e31;border:1px solid currentColor}
+.card h3{font-family:Georgia,serif;margin:0;font-size:1.28rem;letter-spacing:.06em}
+.title{font-weight:650;margin:2px 0;color:var(--accent)}
+.role{color:var(--muted);font-size:.86rem}
+.cardbody{padding:0 16px 16px}.cardbody p{margin:9px 0;font-size:.94rem}
+.cardbody strong{color:#f1d99d}.devise{border-top:1px solid var(--line);padding-top:10px;margin-top:12px!important;color:#e9d6a5;font-family:Georgia,serif;font-style:italic}
+.gold{--accent:#e6bd63}.blue{--accent:#4ac9f4}.red{--accent:#ff6262}.white{--accent:#e9edf6}.purple{--accent:#bb8cff}.green{--accent:#8cdb70}.sky{--accent:#78bfff}.amber{--accent:#f4aa50}.violet{--accent:#d39bff}
+.symbol{color:var(--accent)}
+.panel{background:linear-gradient(140deg,#10213a,#081426);border:1px solid #b88e3e66;border-radius:18px;padding:20px;margin-top:22px}
+.panel h2{font-family:Georgia,serif;color:var(--gold2);margin:0 0 10px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.step{padding:12px;border-radius:12px;background:#071326;border:1px solid var(--line)}
+.step b{color:var(--gold2);display:block;margin-bottom:4px}
+.invocation{font-family:Georgia,serif;text-align:center;color:var(--gold2);font-size:clamp(1.35rem,4vw,2rem);padding:16px 0}
+.small{font-size:.85rem;color:var(--muted)}
+footer{text-align:center;padding:25px 14px;border-top:1px solid #b88e3e55;color:var(--muted);font-size:.85rem}
+.hidden{display:none!important}.empty{text-align:center;padding:25px;color:var(--muted);grid-column:1/-1}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.tools{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.cardtop{padding:14px 14px 8px}.cardbody{padding:0 14px 14px}}
+@media(max-width:380px){.steps{grid-template-columns:1fr}.brandmark{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="brandmark" aria-hidden="true">✧</div>
+  <div class="eyebrow">Codex de l’ancienne alliance</div>
+  <h1>VÉRANKA</h1>
+  <div class="subtitle">LES DIX SPECTRES</div>
+  <p class="motto">Dix âmes. Une alliance. Un même horizon.</p>
+  <nav aria-label="Navigation principale">
+   <a href="index.html">← Accueil VÉRANKA</a>
+   <a href="#spectres">Les Spectres</a>
+   <a href="#fusion">Varek Thar</a>
+   <a href="#serment">Le Serment</a>
+  </nav>
+ </div>
+</header>
+<main class="wrap">
+ <p class="intro">Ils ne sont pas de simples guerriers. Chacun protège une force différente, chacun porte un symbole et chacun possède une faiblesse. Ensemble, ils forment l’alliance des Spectres. Cette page fonctionne sans compte ni service externe.</p>
+ <div class="tools" aria-label="Rechercher les Spectres">
+  <input id="search" type="search" placeholder="Rechercher un nom, un pouvoir, une couleur…" aria-label="Rechercher un Spectre">
+  <select id="filter" aria-label="Filtrer par spécialité">
+   <option value="all">Tous les Spectres</option>
+   <option value="protection">Protection</option><option value="combat">Combat</option>
+   <option value="vision">Vision et stratégie</option><option value="nature">Nature et matière</option>
+   <option value="ombre">Ombre et liberté</option>
+  </select>
+ </div>
+ <h2 class="section-title" id="spectres">Les dix fiches d’identité</h2>
+ <section class="grid" id="grid">
+  <article class="card gold" data-name="zarenth thar zaren gardien or coeur solaire protection équilibre" data-type="protection">
+   <div class="cardtop"><div class="sig symbol">✧</div><div><h3>ZARENTH</h3><div class="title">Thar Zaren</div><div class="role">Le Gardien d’Or · Premier Gardien</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> or et noir</p><p><strong>Pouvoir :</strong> Cœur solaire — crée des boucliers dorés et révèle les illusions.</p><p><strong>Technique :</strong> Sceau de l’Aube, une zone lumineuse qui protège ses alliés.</p><p><strong>Faiblesse :</strong> son désir d’équilibre peut retarder ses décisions.</p><p class="devise">« L’équilibre est notre loi. »</p></div>
+  </article>
+  <article class="card blue" data-name="voralis thar vor stratège onde bleue vision courants stratégie" data-type="vision">
+   <div class="cardtop"><div class="sig symbol">◉</div><div><h3>VORALIS</h3><div class="title">Thar Vor</div><div class="role">La Gardienne bleue · Maîtresse de la Stratégie</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> bleu et cyan</p><p><strong>Pouvoir :</strong> Vision des courants — anticipe les mouvements et perçoit les flux d’énergie.</p><p><strong>Technique :</strong> Prisme du Futur, qui l’aide à comparer plusieurs possibilités.</p><p><strong>Faiblesse :</strong> elle peut trop réfléchir avant d’agir.</p><p class="devise">« La vision précède la victoire. »</p></div>
+  </article>
+  <article class="card red" data-name="drakon draven drak guerrier rouge combat rupture ardente brasier" data-type="combat">
+   <div class="cardtop"><div class="sig symbol">ϟ</div><div><h3>DRAKON</h3><div class="title">Draven Drak</div><div class="role">Le Guerrier rouge · Briseur de Frontières</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> rouge et noir</p><p><strong>Pouvoir :</strong> Rupture ardente — concentre son énergie pour briser des protections magiques.</p><p><strong>Technique :</strong> Frappe du Brasier, qui libère l’énergie accumulée.</p><p><strong>Faiblesse :</strong> sa colère peut obscurcir son jugement.</p><p class="devise">« Ma volonté ne se brise pas. »</p></div>
+  </article>
+  <article class="card white" data-name="selara thar lumar guérisseuse lumière clarté soin protection" data-type="protection">
+   <div class="cardtop"><div class="sig symbol">✥</div><div><h3>SELARA</h3><div class="title">Thar Lumar</div><div class="role">La Gardienne de la Lumière</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> blanc, argent et or</p><p><strong>Pouvoir :</strong> Main de l’Aube — soigne et stabilise les énergies instables.</p><p><strong>Technique :</strong> Sanctuaire blanc, un champ protecteur pour les alliés proches.</p><p><strong>Faiblesse :</strong> elle peut épuiser ses forces pour sauver les autres.</p><p class="devise">« La lumière protège ce qui vit. »</p></div>
+  </article>
+  <article class="card purple" data-name="noctar thar nokar ombre secrets voile nocturne violet" data-type="ombre">
+   <div class="cardtop"><div class="sig symbol">◉</div><div><h3>NOCTAR</h3><div class="title">Thar Nokar</div><div class="role">Le Gardien de l’Ombre · Veilleur des Secrets</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> violet et noir</p><p><strong>Pouvoir :</strong> Voile nocturne — se dissimule dans les ombres et perçoit les présences cachées.</p><p><strong>Technique :</strong> Nuit sans Écho, qui brouille temporairement les perceptions adverses.</p><p><strong>Faiblesse :</strong> il garde trop de secrets, même envers ses alliés.</p><p class="devise">« L’ombre voit ce que le monde ignore. »</p></div>
+  </article>
+  <article class="card green" data-name="elanor thar elar vie nature protectrice racines ancestrales" data-type="nature">
+   <div class="cardtop"><div class="sig symbol">❧</div><div><h3>ELANOR</h3><div class="title">Thar Elar</div><div class="role">La Gardienne de la Vie</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> vert émeraude</p><p><strong>Pouvoir :</strong> Souffle vivant — restaure les forces naturelles et crée des liens protecteurs.</p><p><strong>Technique :</strong> Racines ancestrales, qui protègent un territoire et entravent les menaces.</p><p><strong>Faiblesse :</strong> elle supporte mal les sacrifices nécessaires à une victoire.</p><p class="devise">« Tant que la vie demeure, nous résistons. »</p></div>
+  </article>
+  <article class="card sky" data-name="thalen draven varesh vent voyageur horizons marche vents vitesse" data-type="combat">
+   <div class="cardtop"><div class="sig symbol">△</div><div><h3>THALEN</h3><div class="title">Draven Varesh</div><div class="role">Le Guerrier du Vent · Voyageur des Horizons</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> bleu acier et argent</p><p><strong>Pouvoir :</strong> Marche des vents — se déplace rapidement et maîtrise les courants d’air.</p><p><strong>Technique :</strong> Pas de l’Horizon, qui lui permet de franchir rapidement une grande distance.</p><p><strong>Faiblesse :</strong> il supporte mal les contraintes et les ordres.</p><p class="devise">« Aucun horizon ne m’arrête. »</p></div>
+  </article>
+  <article class="card amber" data-name="kaynar thar kadar terre bâtisseur fondation pierre forteresse" data-type="nature">
+   <div class="cardtop"><div class="sig symbol">☼</div><div><h3>KAYNAR</h3><div class="title">Thar Kadar</div><div class="role">Le Gardien de la Terre · Bâtisseur</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> bronze et ambre</p><p><strong>Pouvoir :</strong> Fondation éternelle — façonne la pierre et renforce les structures.</p><p><strong>Technique :</strong> Forteresse primordiale, qui élève un rempart protecteur.</p><p><strong>Faiblesse :</strong> il s’attache parfois trop aux anciennes méthodes.</p><p class="devise">« Nos fondations survivront aux siècles. »</p></div>
+  </article>
+  <article class="card violet" data-name="sélath selath thar elara visionnaire espoir rêve miroir possibles" data-type="vision">
+   <div class="cardtop"><div class="sig symbol">☾</div><div><h3>SÉLATH</h3><div class="title">Thar Elara</div><div class="role">La Gardienne de l’Espoir · Visionnaire</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> violet et argent</p><p><strong>Pouvoir :</strong> Miroir des possibles — entrevoit des futurs envisageables.</p><p><strong>Technique :</strong> Mille Reflets, qui révèle plusieurs issues possibles.</p><p><strong>Faiblesse :</strong> ses visions sont fragmentaires et peuvent être mal interprétées.</p><p class="devise">« Le futur attend notre choix. »</p></div>
+  </article>
+  <article class="card amber" data-name="razkel draven veyra liberté rebelle chaînes incandescent feu" data-type="ombre">
+   <div class="cardtop"><div class="sig symbol">♨</div><div><h3>RAZKEL</h3><div class="title">Draven Veyra</div><div class="role">Le Guerrier de la Liberté · Briseur de Chaînes</div></div></div>
+   <div class="cardbody"><p><strong>Couleur :</strong> ambre, cuivre et noir</p><p><strong>Pouvoir :</strong> Éveil incandescent — transforme l’énergie accumulée en puissance explosive.</p><p><strong>Technique :</strong> Rupture des Liens, qui brise certaines entraves et protections magiques.</p><p><strong>Faiblesse :</strong> il rejette parfois l’autorité même lorsqu’une coopération est nécessaire.</p><p class="devise">« Nul ne possède notre volonté. »</p></div>
+  </article>
+ </section>
+ <section class="panel" id="fusion">
+  <div class="eyebrow">Technique ultime des Spectres</div>
+  <h2>VAREK THAR — La Fusion des Dix</h2>
+  <p>Lorsque les dix emblèmes s’éveillent, les pouvoirs se rejoignent en une énergie commune. Cette technique représente leur coopération, et non la victoire d’un Spectre sur les autres.</p>
+  <div class="invocation">« Varek! Thar! Draven! »</div>
+  <p class="small" style="text-align:center">Formule rituelle proposée · Sens souhaité : « Puissance ! Gardiens ! Guerriers ! »</p>
+  <div class="steps">
+   <div class="step"><b>01 · L’Union</b>Les dix Spectres prennent place autour du symbole.</div>
+   <div class="step"><b>02 · L’Éveil</b>Leurs emblèmes s’illuminent et libèrent leurs énergies.</div>
+   <div class="step"><b>03 · La Fusion</b>Les dix forces convergent vers un seul flux.</div>
+   <div class="step"><b>04 · L’Impact</b>La puissance commune se manifeste et peut renverser une bataille.</div>
+  </div>
+  <p class="small">Limite légendaire proposée : cette technique exige l’énergie des dix Spectres et ne peut être utilisée qu’une fois par cycle de bataille.</p>
+ </section>
+ <section class="panel" id="serment">
+  <h2>Le Serment des Dix</h2>
+  <p class="motto">« Nous sommes les Dix. Dix forces, dix volontés, une seule alliance. Que l’ombre ne nous divise pas. Que la peur ne nous gouverne pas. Tant que l’alliance vivra, nous nous dresserons. Nous sommes les Spectres, la mémoire des anciens et la force de demain. »</p>
+ </section>
+ <section class="panel">
+  <h2>Note sur la langue VÉRANKA</h2>
+  <p>Les noms des Spectres et les pouvoirs appartiennent à l’univers créatif. Les mots déjà validés conservent leur sens officiel : <strong>Zar</strong> (or), <strong>Vor</strong> (bleu), <strong>Drak</strong> (rouge), <strong>Sel</strong> (blanc), <strong>Nok</strong> (noir), <strong>Varan</strong> (grand) et <strong>Elani</strong> (beau/belle). Les nouveaux termes et les titres composés restent des propositions de vocabulaire jusqu’à validation grammaticale complète.</p>
+ </section>
+</main>
+<footer><div class="brandmark" aria-hidden="true">✧</div><strong style="color:var(--gold2);letter-spacing:.18em">VÉRANKA — LES SPECTRES</strong><p>Une langue. Un univers. Des spectres.</p><a href="index.html">Retour à l’accueil</a></footer>
+<script>
+const search=document.getElementById('search'),filter=document.getElementById('filter'),cards=[...document.querySelectorAll('.card')];
+function update(){const q=search.value.toLocaleLowerCase('fr').trim(),f=filter.value;let count=0;cards.forEach(c=>{const ok=c.dataset.name.includes(q)&& (f==='all'||c.dataset.type===f);c.classList.toggle('hidden',!ok);if(ok)count++});let empty=document.getElementById('empty');if(!count){if(!empty){empty=document.createElement('div');empty.id='empty';empty.className='empty';empty.textContent='Aucun Spectre ne correspond à cette recherche.';document.getElementById('grid').appendChild(empty)}empty.classList.remove('hidden')}else if(empty)empty.classList.add('hidden')}
+search.addEventListener('input',update);filter.addEventListener('change',update);
+</script>
+</body>
+</html>
