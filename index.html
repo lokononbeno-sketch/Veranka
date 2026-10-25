@@ -1,364 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080f20">
-  <meta name="description" content="Découvrez VÉRANKA, une langue originale à apprendre, parler et écrire.">
-  <title>VÉRANKA — École de langue</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Identité visuelle VÉRANKA : bleu nuit et or */
-    :root {
-      --vr-night: #080f20;
-      --vr-panel: #101a30;
-      --vr-gold: #d8b56a;
-      --vr-gold-light: #f0d99c;
-      --vr-text: #f7f4ec;
-      --vr-muted: #c1c7d4;
-    }
-    html { scroll-behavior: smooth; }
-    body { background: var(--vr-night); color: var(--vr-text); }
-    .topbar {
-      background: rgba(8,15,32,.96);
-      border-bottom: 1px solid rgba(216,181,106,.28);
-    }
-    .logo { display:inline-flex; align-items:center; gap:10px; }
-    .brand-emblem {
-      width:38px; height:38px; flex:0 0 38px;
-      display:inline-flex; align-items:center; justify-content:center;
-      border:1px solid var(--vr-gold); border-radius:50%;
-      color:var(--vr-gold-light);
-      background:radial-gradient(circle at 50% 40%, #27304a, #080f20 72%);
-      box-shadow:0 0 18px rgba(216,181,106,.13);
-      font-family:Georgia,serif; font-size:25px; line-height:1;
-    }
-    .brand-emblem svg { width:28px; height:28px; display:block; }
-    .hero {
-      position:relative; isolation:isolate; overflow:hidden;
-      background:
-        radial-gradient(ellipse at 50% 28%, rgba(30,52,91,.55), transparent 58%),
-        radial-gradient(ellipse at 8% 55%, rgba(216,181,106,.09), transparent 35%),
-        linear-gradient(180deg,#0b1429 0%,#080f20 100%);
-      text-align:center;
-    }
-    .hero .eyebrow { color:var(--vr-gold-light); letter-spacing:.2em; }
-    .hero h1 { color:var(--vr-text); }
-    .hero h1 span {
-      color:var(--vr-gold-light);
-      background:none;
-      -webkit-text-fill-color:initial;
-    }
-    .hero .intro, .hero .small-note { color:var(--vr-muted); }
-    .primary-button {
-      display:inline-flex; justify-content:center; align-items:center; gap:8px;
-      background:linear-gradient(135deg,#f0d99c,#d1a84e);
-      color:#151525; border:1px solid #f0d99c;
-      box-shadow:0 8px 28px rgba(216,181,106,.18);
-      font-weight:800;
-    }
-    .primary-button:hover { filter:brightness(1.06); transform:translateY(-1px); }
-    .section { scroll-margin-top:90px; }
-    .section .eyebrow { color:var(--vr-gold); }
-    .level-section {
-      background:linear-gradient(180deg,#0a1225,#080f20);
-    }
-    .level-intro { color:var(--vr-muted); max-width:650px; }
-    .level-grid {
-      display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:14px; margin-top:26px;
-    }
-    .level-card {
-      display:flex; flex-direction:column; align-items:flex-start; gap:10px;
-      min-height:190px; padding:20px;
-      border:1px solid rgba(216,181,106,.34); border-radius:18px;
-      background:linear-gradient(145deg,rgba(20,31,55,.96),rgba(14,19,37,.96));
-      color:var(--vr-text); text-decoration:none;
-      transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
-    }
-    .level-card:hover, .level-card:focus-visible {
-      transform:translateY(-3px); border-color:var(--vr-gold);
-      box-shadow:0 12px 30px rgba(0,0,0,.22);
-    }
-    .level-symbol {
-      width:42px;height:42px;display:grid;place-items:center;
-      border-radius:12px;background:rgba(216,181,106,.12);
-      color:var(--vr-gold-light);font-size:22px;
-    }
-    .level-card strong { font-size:1.08rem; }
-    .level-card small { color:var(--vr-muted); line-height:1.55; }
-    .level-action { margin-top:auto;color:var(--vr-gold-light);font-weight:700; }
-    .level-note { margin-top:16px;color:var(--vr-muted);font-size:.88rem; }
-    .number-lesson{margin-top:24px;padding:clamp(18px,4vw,32px);border:1px solid #b99b5c55;border-radius:20px;background:linear-gradient(145deg,#11182a,#171526);color:#f6f0e2}
-    .number-lesson .eyebrow{color:#d8b56a}
-    .number-lesson .lesson-intro,.number-lesson .lesson-muted{color:#c0bdc8}
-    .number-lesson .number-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin:18px 0}
-    .number-lesson .number-tile{padding:13px;border:1px solid #ffffff1c;border-radius:12px;background:#ffffff08}
-    .number-lesson .number-tile strong{display:block;color:#f0d99c;font-size:22px;font-family:Georgia,serif}
-    .number-lesson .number-tile span{color:#d1ccbf}
-    .number-lesson .number-rule{padding:12px 14px;margin:10px 0;border-left:3px solid #d8b56a;border-radius:0 9px 9px 0;background:#ffffff08}
-    .number-lesson .veranka-word{color:#f0d99c;font-family:Georgia,serif;overflow-wrap:anywhere}
-    .number-lesson .converter-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .number-lesson input{flex:1;min-width:130px;padding:12px;border:1px solid #625b50;border-radius:10px;background:#0c1020;color:#fff;font:inherit}
-    .number-lesson .lesson-action{padding:12px 16px;border:0;border-radius:10px;background:#d8b56a;color:#17130b;font:inherit;font-weight:750;cursor:pointer}
-    .number-lesson .lesson-action:hover{background:#f0d99c}
-    .number-lesson .lesson-result{padding:14px;margin-top:12px;border:1px solid #ffffff20;border-radius:10px;background:#090d18;overflow-wrap:anywhere}
-    .number-lesson .lesson-result strong{color:#f0d99c;font-size:20px}
-    .number-lesson .lesson-quiz-item{padding:15px 0;border-bottom:1px solid #ffffff20}
-    .number-lesson .lesson-quiz-item:last-child{border-bottom:0}
-    .number-lesson .lesson-choices{display:flex;flex-wrap:wrap;gap:8px}
-    .number-lesson .lesson-choice{padding:10px 13px;border:1px solid #ffffff30;border-radius:9px;background:#ffffff0b;color:#f6f0e2;cursor:pointer}
-    .number-lesson .lesson-choice.selected{border-color:#d8b56a;background:#51442b}
-    .number-lesson .lesson-feedback{margin-top:8px;font-weight:700}
-    .number-lesson .lesson-good{color:#8fd5a5}.number-lesson .lesson-bad{color:#ff9c91}
-    @media(max-width:520px) {
-      .number-lesson .converter-row{flex-direction:column}
-      .number-lesson .lesson-action{width:100%}
-      .level-grid { grid-template-columns:1fr; }
-      .level-card { min-height:0; }
-      .brand-emblem { width:34px;height:34px;flex-basis:34px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080f20">
+<meta name="description" content="Apprends la langue VÉRANKA étape par étape.">
+<title>Accueil — VÉRANKA</title>
+<style>
+:root{--night:#080f20;--panel:#101a30;--gold:#d8b56a;--gold-light:#f0d99c;--text:#f7f4ec;--muted:#c1c7d4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--night);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
+a{color:inherit}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px clamp(16px,4vw,40px);background:#080f20;border-bottom:1px solid #d8b56a55;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:1.25rem;font-weight:800;letter-spacing:.06em}
+.brand-emblem{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;color:var(--gold-light);font-family:Georgia,serif;font-size:25px;background:radial-gradient(circle at 50% 40%,#27304a,#080f20 72%)}
+nav{display:flex;flex-wrap:wrap;gap:16px}nav a{text-decoration:none;color:var(--muted);font-size:.92rem}nav a:hover{color:var(--gold-light)}
+main{width:min(100% - 32px,1000px);margin:0 auto}.hero{padding:clamp(50px,10vw,100px) 0 50px;text-align:center;background:radial-gradient(ellipse at 50% 30%,#1e345955,transparent 60%)}
+.eyebrow{color:var(--gold-light);font-size:.8rem;letter-spacing:.18em;font-weight:700}.hero h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:1.12;margin:16px auto;max-width:850px}.gold{color:var(--gold-light)}.intro,.muted{color:var(--muted)}.intro{font-size:1.1rem;max-width:680px;margin:0 auto 24px}
+.primary-button,.action{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f0d99c,#d1a84e);color:#151525;text-decoration:none;border:0;border-radius:12px;padding:13px 20px;font-weight:800;cursor:pointer}
+.section{padding:32px 0;scroll-margin-top:85px}.section h2{font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.2}.level-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:24px 0}
+.level-card{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid #d8b56a55;border-radius:18px;background:linear-gradient(145deg,#141f37,#0e1325);text-decoration:none;min-height:180px}
+.level-card:hover{border-color:var(--gold);transform:translateY(-2px)}.level-symbol{color:var(--gold-light);font-size:1.5rem}.level-card strong{font-size:1.08rem}.level-card small{color:var(--muted)}.level-action{margin-top:auto;color:var(--gold-light);font-weight:700}
+.panel{margin:22px 0;padding:clamp(18px,4vw,30px);border:1px solid #d8b56a55;border-radius:20px;background:linear-gradient(145deg,#11182a,#171526)}
+.number-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(95px,1fr));gap:10px;margin:18px 0}.number-tile,.word-tile{padding:13px;border:1px solid #ffffff1c;border-radius:12px;background:#ffffff08}.number-tile strong{display:block;color:var(--gold-light);font:700 22px Georgia,serif}.number-tile span{color:#d1ccbf}
+.rule{padding:12px 14px;margin:10px 0;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;background:#ffffff08}.veranka-word{color:var(--gold-light);font-family:Georgia,serif;overflow-wrap:anywhere}
+.converter-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.converter-row input{flex:1;min-width:130px;padding:12px;border:1px solid #625b50;border-radius:10px;background:#0c1020;color:white;font:inherit}.result{padding:14px;margin-top:12px;border:1px solid #ffffff20;border-radius:10px;background:#090d18;overflow-wrap:anywhere}.result strong{color:var(--gold-light);font-size:20px}
+.quiz-item{padding:15px 0;border-bottom:1px solid #ffffff20}.choices{display:flex;flex-wrap:wrap;gap:8px}.choice,.quiz-option{padding:10px 13px;border:1px solid #ffffff30;border-radius:9px;background:#ffffff0b;color:var(--text);cursor:pointer}.choice.selected{border-color:var(--gold);background:#51442b}.good{color:#8fd5a5}.bad{color:#ff9c91}
+.letters{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0}.letters span{display:grid;place-items:center;min-width:56px;height:64px;border:1px solid #d8b56a66;border-radius:12px;background:#ffffff08;color:var(--gold-light);font-size:1.5rem;font-weight:800}
+.word-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.word-tile strong{display:block;color:var(--gold-light)}.note{font-size:.9rem;color:var(--muted)}
+footer{text-align:center;padding:32px 16px;margin-top:40px;border-top:1px solid #d8b56a33;color:var(--muted)}footer .logo{justify-content:center;color:var(--text)}
+.back-link{display:inline-block;margin:22px 0;color:var(--gold-light);text-decoration:none}
+@media(max-width:600px){.topbar{align-items:flex-start;flex-direction:column}.level-grid{grid-template-columns:1fr}.level-card{min-height:0}.converter-row{flex-direction:column}.action{width:100%}nav{gap:12px}}
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <a class="logo" href="#accueil" aria-label="VÉRANKA, accueil">
-      <span class="brand-emblem" aria-hidden="true">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="17" stroke="currentColor" stroke-width="1"/>
-          <path d="M8 12L20 30L32 12M12 10L20 22L28 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M20 4V9M20 31V36" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="20" cy="4" r="1.4" fill="currentColor"/>
-        </svg>
-      </span>
-      <span>VÉRANKA<span class="logo-reg">®</span></span>
-    </a>
-    <button class="menu-button" id="menuButton" aria-label="Ouvrir le menu">☰</button>
-    <nav id="navigation">
-      <a href="#accueil">Accueil</a>
-      <a href="#niveaux">Niveaux</a>
-      <a href="#alphabet">Alphabet</a>
-      <a href="#nombres">Nombres</a>
-      <a href="#quiz">Quiz</a>
-    </nav>
-  </header>
+<header class="topbar">
+<a class="logo" href="index.html"><span class="brand-emblem" aria-hidden="true">V</span><span>VÉRANKA</span></a>
+<nav aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="niveau-1.html">Niveau 1</a><a href="niveau-2.html">Niveau 2</a><a href="niveau-3.html">Niveau 3</a><a href="niveau-4.html">Niveau 4</a></nav>
+</header>
+<main>
 
-  <main>
-    <section class="hero" id="accueil">
-      <div class="orb orb-one"></div>
-      <div class="orb orb-two"></div>
-      <p class="eyebrow">UNE LANGUE. UN UNIVERS. UNE AVENTURE.</p>
-      <h1>Entrez dans le monde de <span>VÉRANKA</span></h1>
-      <p class="intro">
-        Découvrez une langue originale, apprenez ses mots,
-        explorez ses règles et commencez à créer vos propres phrases.
-      </p>
-      <a class="primary-button" href="#niveaux">Commencer à apprendre <span aria-hidden="true">↗</span></a>
-      <p class="small-note">Votre voyage linguistique commence ici.</p>
-    </section>
+<section class="hero">
+<p class="eyebrow">UNE LANGUE. UN UNIVERS. UNE AVENTURE.</p>
+<h1>Entrez dans le monde de <span class="gold">VÉRANKA</span></h1>
+<p class="intro">Découvrez une langue originale, apprenez ses mots, explorez ses règles et commencez à créer vos propres phrases.</p>
+<a class="primary-button" href="#parcours">Commencer à apprendre ↗</a>
+<p class="muted">Votre voyage linguistique commence ici.</p>
+</section>
+<section class="section" id="parcours">
+<p class="eyebrow">VOTRE PARCOURS</p><h2>Choisissez votre niveau</h2>
+<p class="muted">Chaque niveau possède sa propre page. Choisissez un parcours pour voir les leçons correspondantes.</p>
+<div class="level-grid">
+<a class="level-card" href="niveau-1.html"><span class="level-symbol">✧</span><strong>Niveau 1 — Découverte</strong><small>Alphabet, voyelles et premiers mots.</small><span class="level-action">Ouvrir le niveau →</span></a>
+<a class="level-card" href="niveau-2.html"><span class="level-symbol">Ⅱ</span><strong>Niveau 2 — Fondations</strong><small>Nombres et règles de construction.</small><span class="level-action">Ouvrir le niveau →</span></a>
+<a class="level-card" href="niveau-3.html"><span class="level-symbol">◇</span><strong>Niveau 3 — Construction</strong><small>Vocabulaire, pronoms et premières phrases.</small><span class="level-action">Ouvrir le niveau →</span></a>
+<a class="level-card" href="niveau-4.html"><span class="level-symbol">☆</span><strong>Niveau 4 — Entraînement</strong><small>Quiz et révision des connaissances.</small><span class="level-action">Ouvrir le niveau →</span></a>
+</div>
+<p class="note">Les niveaux 3 et 4 sont une première base que nous enrichirons avec de nouvelles leçons.</p>
+</section>
 
-    <section class="section level-section" id="niveaux">
-      <p class="eyebrow">VOTRE PARCOURS</p>
-      <h2>Choisissez votre niveau</h2>
-      <p class="level-intro">Progressez étape par étape. Choisissez un parcours pour accéder directement aux leçons correspondantes.</p>
-      <div class="level-grid">
-        <a class="level-card" href="#alphabet">
-          <span class="level-symbol" aria-hidden="true">✧</span>
-          <strong>Niveau 1 — Découverte</strong>
-          <small>Alphabet, voyelles, prononciation et premiers mots.</small>
-          <span class="level-action">Commencer le niveau →</span>
-        </a>
-        <a class="level-card" href="#nombres">
-          <span class="level-symbol" aria-hidden="true">Ⅱ</span>
-          <strong>Niveau 2 — Fondations</strong>
-          <small>Nombres, vocabulaire essentiel et constructions simples.</small>
-          <span class="level-action">Découvrir les nombres →</span>
-        </a>
-        <a class="level-card" href="#vocabulaire">
-          <span class="level-symbol" aria-hidden="true">◇</span>
-          <strong>Niveau 3 — Construction</strong>
-          <small>Enrichir son vocabulaire et préparer des phrases.</small>
-          <span class="level-action">Voir le vocabulaire →</span>
-        </a>
-        <a class="level-card" href="#quiz">
-          <span class="level-symbol" aria-hidden="true">☆</span>
-          <strong>Niveau 4 — Entraînement</strong>
-          <small>Tester ses connaissances et réviser les notions apprises.</small>
-          <span class="level-action">Faire un quiz →</span>
-        </a>
-      </div>
-      <p class="level-note">Les niveaux sont une première organisation. Nous pourrons ajouter des leçons dédiées à chaque niveau au fur et à mesure.</p>
-    </section>
+</main>
+<footer><a class="logo" href="index.html"><span class="brand-emblem" aria-hidden="true">V</span><span>VÉRANKA</span></a><p>Une langue en construction. Un univers à découvrir.</p><p>© 2026 VÉRANKA — Projet éducatif indépendant</p></footer>
 
-    <section class="section alphabet-section" id="alphabet">
-      <p class="eyebrow">LEÇON 01</p>
-      <h2>Les voyelles</h2>
-      <p>Voici les cinq voyelles de base utilisées dans notre transcription actuelle.</p>
-      <div class="letters">
-        <span>A</span><span>E</span><span>I</span><span>O</span><span>U</span>
-      </div>
-      <p class="note">Cette transcription est notre base de travail. Nous pourrons ensuite définir officiellement l'alphabet et les règles de prononciation.</p>
-    </section>
-
-    <section class="section" id="vocabulaire">
-      <p class="eyebrow">PREMIERS MOTS</p>
-      <h2>Votre premier vocabulaire</h2>
-      <div class="word-list">
-        <div><strong>Avel</strong><span>Bonjour</span></div>
-        <div><strong>Kalen</strong><span>Paix</span></div>
-        <div><strong>Sor</strong><span>Lumière</span></div>
-        <div><strong>Dara</strong><span>Vérité</span></div>
-        <div><strong>Naven</strong><span>Merci</span></div>
-      </div>
-      <p class="note">Certains mots de cette liste restent provisoires et devront être confirmés dans le dictionnaire officiel de VÉRANKA.</p>
-    </section>
-
-    <section class="section number-lesson" id="nombres">
-      <p class="eyebrow">LEÇON 02 · LES NOMBRES</p>
-      <h2>Compter de 1 à 1 000</h2>
-      <p class="lesson-intro">Découvre les mots numériques de VÉRANKA, comprends leur construction, puis utilise le convertisseur et le mini-quiz.</p>
-      <h3>Les nombres de 1 à 10</h3>
-      <div class="number-grid" id="verankaBaseNumbers"></div>
-      <h3>Les règles de construction</h3>
-      <div class="number-rule"><b>11 à 19 :</b> <span class="veranka-word">Dek</span> + unité. Exemple : <span class="veranka-word">Dek-An</span> = 11.</div>
-      <div class="number-rule"><b>Les dizaines :</b> unité + <span class="veranka-word">Dek</span>. Exemple : <span class="veranka-word">Du-Dek</span> = 20.</div>
-      <div class="number-rule"><b>Les nombres composés :</b> dizaine + unité. Exemple : <span class="veranka-word">Du-Dek-Tre</span> = 23.</div>
-      <div class="number-rule"><b>Les centaines :</b> multiplicateur + <span class="veranka-word">Kant</span>. Exemple : <span class="veranka-word">Tre-Kant</span> = 300.</div>
-      <div class="number-rule"><b>Centaines composées :</b> centaine + reste. Exemple : <span class="veranka-word">An-Kant-Du-Dek-Ven</span> = 125.</div>
-      <div class="number-rule"><b>1 000 :</b> <span class="veranka-word">Milen</span>.</div>
-      <h3>Convertisseur</h3>
-      <p class="lesson-intro">Entre un nombre entier compris entre 1 et 1 000.</p>
-      <label for="verankaNumberInput">Ton nombre</label>
-      <div class="converter-row">
-        <input id="verankaNumberInput" type="number" min="1" max="1000" step="1" value="125" inputmode="numeric">
-        <button class="lesson-action" id="verankaConvertButton" type="button">Afficher en VÉRANKA</button>
-      </div>
-      <div class="lesson-result" id="verankaConvertResult" aria-live="polite"></div>
-      <h3>Mini-quiz</h3>
-      <p class="lesson-intro">Choisis une réponse pour chaque question, puis vérifie ton score.</p>
-      <div id="verankaNumberQuiz"></div>
-      <button class="lesson-action" id="verankaCheckQuiz" type="button">Vérifier mes réponses</button>
-      <div class="lesson-result" id="verankaQuizResult" aria-live="polite">Ton résultat apparaîtra ici.</div>
-    </section>
-
-    <section class="section quiz-section" id="quiz">
-      <p class="eyebrow">À VOUS DE JOUER</p>
-      <h2>Premier mini-quiz de vocabulaire</h2>
-      <p>Que signifie le mot « Sor » dans notre vocabulaire de travail ?</p>
-      <div class="quiz-options">
-        <button class="quiz-option" data-answer="false">La terre</button>
-        <button class="quiz-option" data-answer="true">La lumière</button>
-        <button class="quiz-option" data-answer="false">La paix</button>
-      </div>
-      <p id="quizFeedback" class="feedback" aria-live="polite"></p>
-      <p id="quizScore" class="score">Score : 0 / 1</p>
-    </section>
-  </main>
-
-  <footer>
-    <a class="logo" href="#accueil">
-      <span class="brand-emblem" aria-hidden="true">V</span>
-      <span>VÉRANKA</span>
-    </a>
-    <p>Une langue en construction. Un univers à découvrir.</p>
-    <p class="copyright">© 2026 VÉRANKA — Projet éducatif indépendant</p>
-  </footer>
-
-  <script src="script.js"></script>
-  <script>
-    (function () {
-      const units = {1:"An",2:"Du",3:"Tre",4:"Kar",5:"Ven",6:"Zek",7:"Sha",8:"Mor",9:"Nev"};
-      const base = document.getElementById("verankaBaseNumbers");
-      if (!base) return;
-      for (let n = 1; n <= 10; n++) {
-        const word = n === 10 ? "Dek" : units[n];
-        const tile = document.createElement("div");
-        tile.className = "number-tile";
-        tile.innerHTML = "<strong>" + n + "</strong><span>" + word + "</span>";
-        base.appendChild(tile);
-      }
-      function below100(n) {
-        if (n < 10) return units[n];
-        if (n === 10) return "Dek";
-        if (n < 20) return "Dek-" + units[n - 10];
-        const tens = Math.floor(n / 10);
-        const ones = n % 10;
-        const tensWord = units[tens] + "-Dek";
-        return ones === 0 ? tensWord : tensWord + "-" + units[ones];
-      }
-      function toVeranka(n) {
-        if (!Number.isInteger(n) || n < 1 || n > 1000) return null;
-        if (n === 1000) return "Milen";
-        if (n < 100) return below100(n);
-        const hundreds = Math.floor(n / 100);
-        const rest = n % 100;
-        return units[hundreds] + "-Kant" + (rest ? "-" + below100(rest) : "");
-      }
-      const input = document.getElementById("verankaNumberInput");
-      const result = document.getElementById("verankaConvertResult");
-      function convert() {
-        const n = Number(input.value);
-        const word = toVeranka(n);
-        result.innerHTML = word
-          ? "<span class='lesson-muted'>" + n + " en VÉRANKA</span><br><strong>" + word + "</strong>"
-          : "Entre un nombre entier compris entre 1 et 1 000.";
-      }
-      document.getElementById("verankaConvertButton").addEventListener("click", convert);
-      input.addEventListener("keydown", function (event) { if (event.key === "Enter") convert(); });
-      convert();
-      const questions = [
-        {q:"Comment dit-on 7 ?", choices:["Mor","Sha","Nev"], answer:"Sha"},
-        {q:"Que signifie Du-Dek ?", choices:["12","20","22"], answer:"20"},
-        {q:"Comment écrit-on 11 ?", choices:["An-Dek","Dek-An","Du-Dek"], answer:"Dek-An"},
-        {q:"Que signifie Kant ?", choices:["10","100","1 000"], answer:"100"},
-        {q:"Comment écrit-on 1 000 ?", choices:["Nev-Kant","Milen","Dek-Kant"], answer:"Milen"},
-        {q:"Comment écrit-on 23 ?", choices:["Du-Dek-Tre","Tre-Dek-Du","Du-Kant-Tre"], answer:"Du-Dek-Tre"}
-      ];
-      const quiz = document.getElementById("verankaNumberQuiz");
-      questions.forEach(function (q, i) {
-        const item = document.createElement("div");
-        item.className = "lesson-quiz-item";
-        const title = document.createElement("h4");
-        title.textContent = (i + 1) + ". " + q.q;
-        item.appendChild(title);
-        const choices = document.createElement("div");
-        choices.className = "lesson-choices";
-        q.choices.forEach(function (choice) {
-          const button = document.createElement("button");
-          button.type = "button";
-          button.className = "lesson-choice";
-          button.textContent = choice;
-          button.addEventListener("click", function () {
-            choices.querySelectorAll("button").forEach(function (b) { b.classList.remove("selected"); });
-            button.classList.add("selected");
-            item.dataset.answer = choice;
-          });
-          choices.appendChild(button);
-        });
-        item.appendChild(choices);
-        quiz.appendChild(item);
-      });
-      document.getElementById("verankaCheckQuiz").addEventListener("click", function () {
-        let score = 0;
-        Array.from(quiz.children).forEach(function (item, i) {
-          const correct = item.dataset.answer === questions[i].answer;
-          if (correct) score++;
-          let feedback = item.querySelector(".lesson-feedback");
-          if (!feedback) {
-            feedback = document.createElement("div");
-            feedback.className = "lesson-feedback";
-            item.appendChild(feedback);
-          }
-          feedback.className = "lesson-feedback " + (correct ? "lesson-good" : "lesson-bad");
-          feedback.textContent = correct ? "Correct !" : "Réponse attendue : " + questions[i].answer;
-        });
-        document.getElementById("verankaQuizResult").innerHTML =
-          "<strong>" + score + " / " + questions.length + "</strong><br>" +
-          (score === questions.length ? "Excellent ! Tu maîtrises ces bases." :
-          score >= 4 ? "Très bien ! Revois les réponses manquées et réessaie." :
-          "Continue à pratiquer : les règles deviennent plus faciles avec les exemples.");
-      });
-    })();
-  </script>
 </body>
-                                                                                                                                            </html>
+</html>
